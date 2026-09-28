@@ -1,0 +1,18 @@
+package Ejercicio22_pasarelasPagoMulticanal;
+
+public class PagoBilleteraVirtual implements ProcesadorPago {
+    private double saldo;
+
+    public PagoBilleteraVirtual(double saldo) {
+        this.saldo = saldo;
+    }
+
+    @Override
+    public boolean procesarPago(double monto) {
+        if (monto <= 0 || monto > saldo) {
+            return false;
+        }
+        saldo -= monto;
+        return true;
+    }
+}
